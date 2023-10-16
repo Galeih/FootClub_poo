@@ -1,0 +1,46 @@
+TP1
+
+1.   Les respects des standards 
+    -> Nom variable / fonction / classes
+    -> FRANGLAIS
+    -> types de variables
+
+2.  Lien entre les classes
+    -> TeamId X --> on parle de Team $Team
+
+3.  Un jeu d'essai complet V
+
+4.  Héritage Person(abstract) Player + Staff Member
+
+5.  BDD -> clés primaires + structure V
+        -> Score int (300) à bannir --> int(5) V
+
+TP2
+
+Mise en place d'un autoloader
+
+Utiliser require car ce n'est pas une classes
+
+- Faire passer connexionbdd.php en classe --> 
+
+class Database {
+    public function connect(): \PDO {
+        // chaîne de connexion
+
+        return $connexion;
+    }
+}
+
+TP2.5 
+
+--> Affichage données BDD
+--> Création fonction getAll
+--> Affichage des données
+    |__ Externalisation de la vue 
+
+Edit : 
+
+Model -> class qui représente des tables dans la base de données
+
+Nom de domaine --> 
+Configurer un virtualhost sur le dossier Xampp
