@@ -2,7 +2,8 @@
     "name": "admin/footclub",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "Router\\": "Router/"
         }
     },
     "authors": [

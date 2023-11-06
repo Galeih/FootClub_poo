@@ -2,126 +2,64 @@
 
 namespace App\Model;
 
-use DateTime;
+class Player {
+    private string $lastName; // Changed from $nom
+    private string $name; // Changed from $prenom
+    private \DateTime $dateDeNaissance;
+    private string $photo;
 
-class Player extends Person
-{
-    private DateTime $birthdate;
-    private array $teams;
+    // ##### NEED TO add array that shows the teams associated with this player (without using PlayerHasTeam)
 
-    // Constructeur
-    public function __construct(?int $id, string $firstName, string $lastName, DateTime $birthdate, string $picture)
+    public function __construct(
+        string $lastName, // Changed from $nom
+        string $name, // Changed from $prenom
+        \DateTime $dateDeNaissance,
+        string $photo
+    )
     {
-        parent::__construct($id, $firstName, $lastName, $picture);
-        $this->birthdate = $birthdate;
-        $this->teams = [];
+        $this->lastName = $lastName; // Changed from $nom
+        $this->name = $name; // Changed from $prenom
+        $this->dateDeNaissance = $dateDeNaissance;
+        $this->photo = $photo;
     }
 
-    // Getter et Setter pour birthdate
-    public function getBirthdate(): DateTime
-    {
-        return $this->birthdate;
+    // Getter for lastName (formerly nom)
+    public function getLastName(): string { // Changed from getNom
+        return $this->lastName;
     }
 
-    public function setBirthdate(DateTime $birthdate): void
-    {
-        $this->birthdate = $birthdate;
+    // Setter for lastName (formerly nom)
+    public function setLastName(string $lastName): void { // Changed from setNom
+        $this->lastName = $lastName;
     }
 
-    // Getter et Setter pour teams
-    public function getTeams(): array
-    {
-        return $this->teams;
+    // Getter for name (formerly prenom)
+    public function getName(): string { // Changed from getPrenom
+        return $this->name;
     }
 
-    public function addTeam(Team $team): void
-    {
-        $this->teams[] = $team;
+    // Setter for name (formerly prenom)
+    public function setName(string $name): void { // Changed from setPrenom
+        $this->name = $name;
     }
 
-    public function removeTeam(Team $team): void
-    {
-        $index = array_search($team, $this->teams);
-        if ($index !== false) {
-            array_splice($this->teams, $index, 1);
-        }
+    // Getter for dateDeNaissance
+    public function getDateDeNaissance(): \DateTime {
+        return $this->dateDeNaissance;
     }
 
+    // Setter for dateDeNaissance
+    public function setDateDeNaissance(\DateTime $dateDeNaissance): void {
+        $this->dateDeNaissance = $dateDeNaissance;
+    }
+
+    // Getter for photo
+    public function getPhoto(): string {
+        return $this->photo;
+    }
+
+    // Setter for photo
+    public function setPhoto(string $photo): void {
+        $this->photo = $photo;
+    }
 }
-
-
-// Avant héritage
-
-// class Player
-// {
-//     private Player $player;
-//     private string $firstname;
-//     private string $lastname;
-//     private string $birthdate;
-//     private string $picture;
-
-//     // Constructeur
-//     public function __construct($player, $firstname, $lastname, $birthdate, $picture)
-//     {
-//         $this->player = $player;
-//         $this->firstname = $firstname;
-//         $this->lastname = $lastname;
-//         $this->birthdate = $birthdate;
-//         $this->picture = $picture;
-//     }
-
-//     // Getter et Setter pour id
-//     public function getId()
-//     {
-//         return $this->player;
-//     }
-
-//     public function setId($player)
-//     {
-//         $this->player = $player;
-//     }
-
-//     // Getter et Setter pour firstname
-//     public function getFirstname()
-//     {
-//         return $this->firstname;
-//     }
-
-//     public function setFirstname($firstname)
-//     {
-//         $this->firstname = $firstname;
-//     }
-
-//     // Getter et Setter pour lastname
-//     public function getLastname()
-//     {
-//         return $this->lastname;
-//     }
-
-//     public function setLastname($lastname)
-//     {
-//         $this->lastname = $lastname;
-//     }
-
-//     // Getter et Setter pour birthdate
-//     public function getBirthdate()
-//     {
-//         return $this->birthdate;
-//     }
-
-//     public function setBirthdate($birthdate)
-//     {
-//         $this->birthdate = $birthdate;
-//     }
-
-//     // Getter et Setter pour picture
-//     public function getPicture()
-//     {
-//         return $this->picture;
-//     }
-
-//     public function setPicture($picture)
-//     {
-//         $this->picture = $picture;
-//     }
-// }

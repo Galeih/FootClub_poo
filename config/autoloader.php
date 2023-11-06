@@ -1,23 +1,21 @@
 <?php
 
-final readonly class Autoloader
+final class Autoloader
 {
-    public static function register(): void
+    public static function register()
     {
         spl_autoload_register(function ($class) {
-            if (str_starts_with($class, 'App\\')) {
-                $class = substr_replace($class, 'src', 0, 3);
+            $prefix = 'App\\';
+            $base_dir = __DIR__ . '/src/';
+
+            if (str_starts_with($class, $prefix)) {
+                $relative_class = substr($class, strlen($prefix));
+                $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+
+                if (file_exists($file)) {
+                    require $file;
+                }
             }
-
-            $file = '../'.str_replace('\\', DIRECTORY_SEPARATOR, $class).'.php';
-
-            if (file_exists($file)) {
-                require $file;
-
-                return true;
-            }
-
-            return false;
         });
     }
 }

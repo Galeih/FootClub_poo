@@ -1,22 +1,35 @@
-<?php
-require '../config/parameters.php';
-require '../config/autoloader.php';
+<!DOCTYPE html>
+<html lang="fr">
 
-use App\Database\PlayerDatabase;
-use App\Model\Player;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootClub - Accueil</title>
+</head>
 
-// Récupérer les données du formulaire
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$birthdate = new DateTime($_POST['birthdate']); // Convertion de la chaîne en DateTime
-$picture = $_FILES['picture']['name'];
+<body>
+    <?php
+    require '../include/connexion_bdd.php';
+    require '../autoloader.php';
 
-$player = new Player(1, $firstname, $lastname, $birthdate, $picture);
-$player->setFirstname('Lionnel');
-$player->setLastname('Messi');
-$player->setBirthdate($birthdate);
-$player->setPicture('Lionnel');
-$result = PlayerDatabase::add($player);
+    use App\Model\PlayerRepo;
 
-// $database = new Database();
-// $connexion->connect();
+    $playerRepository = new PlayerRepo($connexion);
+    $allPlayers = $playerRepository->getAllPlayers();
+    ?>
+
+    <section>
+        <div class="cardContainer">
+            <?php
+            foreach ($allPlayers as $player) { ?>
+                <div class="card">
+                    <img src="public/assets/<?= $player->getPhoto() ?>" alt="<?= $player->getName() ?>'s Picture">
+                    <h1><?= $player->getName() . $player->getLastName() ?></h1>
+                    <span class="birthDate">Date of Birth : <?= $player->getDateDeNaissance()->format('Y-m-d') ?></span>
+                </div>
+            <?php } ?>
+        </div>
+    </section>
+</body>
+
+</html>

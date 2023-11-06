@@ -12,7 +12,6 @@ class FootballMatch
     private string $city;
     private OpposingClub $opposingClub;
 
-    // Constructeur
     public function __construct(int $id, int $teamScore, int $opponentScore, string $date, Team $team, string $city, OpposingClub $opposingClub)
     {
         $this->id = $id;
@@ -24,7 +23,6 @@ class FootballMatch
         $this->opposingClub = $opposingClub;
     }
 
-    // Getter et Setter pour id
     public function getId()
     {
         return $this->id;
@@ -35,7 +33,6 @@ class FootballMatch
         $this->id = $id;
     }
 
-    // Getter et Setter pour teamScore
     public function getTeamScore()
     {
         return $this->teamScore;
@@ -46,7 +43,6 @@ class FootballMatch
         $this->teamScore = $teamScore;
     }
 
-    // Getter et Setter pour opponentScore
     public function getOpponentScore()
     {
         return $this->opponentScore;
@@ -57,7 +53,6 @@ class FootballMatch
         $this->opponentScore = $opponentScore;
     }
 
-    // Getter et Setter pour date
     public function getDate()
     {
         return $this->date;
@@ -68,7 +63,6 @@ class FootballMatch
         $this->date = $date;
     }
 
-    // Getter et Setter pour team_id
     public function getTeamId()
     {
         return $this->team;
@@ -79,7 +73,6 @@ class FootballMatch
         $this->team = $team;
     }
 
-    // Getter et Setter pour city
     public function getCity()
     {
         return $this->city;
@@ -90,7 +83,6 @@ class FootballMatch
         $this->city = $city;
     }
 
-    // Getter et Setter pour opposingClub
     public function getOpposingClub()
     {
         return $this->opposingClub;

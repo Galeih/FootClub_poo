@@ -1,6 +1,6 @@
 <?php
 
-putenv('DB_NAME=madb');
+putenv('DB_NAME=madb-exemple');
 putenv('DB_USERNAME=root');
 putenv('DB_PASSWORD=root');
 putenv('DB_HOST=127.0.0.1');

@@ -44,3 +44,5 @@ Model -> class qui représente des tables dans la base de données
 
 Nom de domaine --> 
 Configurer un virtualhost sur le dossier Xampp
+
+Refaire le footclub suite au backup

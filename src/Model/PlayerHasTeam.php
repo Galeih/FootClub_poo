@@ -4,47 +4,43 @@ namespace App\Model;
 
 class PlayerHasTeam
 {
-    private int $id;
+    private Player $player;
     private Team $team;
     private string $role;
 
-    // Constructeur
-    public function __construct($id, $team, $role)
+    public function __construct(Player $player, Team $team, string $role)
     {
-        $this->id = $id;
+        $this->player = $player;
         $this->team = $team;
         $this->role = $role;
     }
 
-    // Getter et Setter pour player
-    public function getPlayer()
+    public function getPlayer(): Player
     {
-        return $this->id;
+        return $this->player;
     }
 
-    public function setPlayer(Player $player)
+    public function setPlayer(Player $player): void
     {
-        $this->id = $player;
+        $this->player = $player;
     }
 
-    // Getter et Setter pour team
-    public function getTeam()
+    public function getTeam(): Team
     {
         return $this->team;
     }
 
-    public function setTeam(Team $team)
+    public function setTeam(Team $team): void
     {
         $this->team = $team;
     }
 
-    // Getter et Setter pour role
-    public function getRole()
+    public function getRole(): string
     {
         return $this->role;
     }
 
-    public function setRole(string $role)
+    public function setRole(string $role): void
     {
         $this->role = $role;
     }
